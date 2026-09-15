@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Someone Special ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Montserrat,sans-serif;color:#fff;background:#100710}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 15% 15%,#8e2758,transparent 28%),radial-gradient(circle at 85% 20%,#54206f,transparent 28%),radial-gradient(circle at 50% 110%,#741a45,transparent 38%),linear-gradient(145deg,#0e060d,#2a0d20 55%,#11070e)}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.25;pointer-events:none}.o1{width:300px;height:300px;background:#ff4f91;left:-100px;top:35%}.o2{width:350px;height:350px;background:#a04dff;right:-130px;bottom:0}
+.stars{position:fixed;inset:0;pointer-events:none}.star{position:absolute;opacity:.7;animation:twinkle 2s infinite alternate}@keyframes twinkle{to{opacity:.1;transform:scale(.5)}}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transform:scale(.97);transition:.6s ease;z-index:3}.screen.active{opacity:1;visibility:visible;transform:scale(1)}
+.card{width:min(92%,720px);max-height:90vh;overflow:auto;text-align:center;padding:44px 30px;border:1px solid #fff2;border-radius:34px;background:#ffffff0d;box-shadow:0 30px 100px #0009,inset 0 1px #fff2;backdrop-filter:blur(20px)}
+h1,h2{font-family:"DM Serif Display",serif;font-weight:400}h1{font-size:clamp(45px,9vw,78px);line-height:1;margin:16px 0}h2{font-size:clamp(34px,7vw,54px);margin:10px 0}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.6}.subtitle{font:italic 21px "DM Serif Display",serif;opacity:.85;line-height:1.5}.heart{font-size:76px;animation:pulse 1.3s infinite;filter:drop-shadow(0 0 22px #ff4f91)}@keyframes pulse{50%{transform:scale(1.12)}}
+.divider{width:65px;height:1px;background:#fff4;margin:23px auto}
+.btn{border:0;border-radius:50px;padding:15px 28px;margin:7px;font:700 14px Montserrat;cursor:pointer;transition:.2s}.primary{color:white;background:linear-gradient(135deg,#ff3f78,#e91e63);box-shadow:0 10px 30px #ff397055}.primary:hover{transform:translateY(-3px) scale(1.04)}.ghost{background:#fff1;color:white;border:1px solid #fff2}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:25px auto;max-width:600px}.reason{min-height:130px;padding:22px;border-radius:22px;background:#fff0;border:1px solid #fff2;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s}.reason:hover{background:#fff12;transform:translateY(-4px)}.reason span{font-family:"DM Serif Display";font-size:20px}.reason .back{display:none}.reason.open .front{display:none}.reason.open .back{display:block}
+.timeline{display:grid;gap:13px;text-align:left;max-width:600px;margin:25px auto}.moment{padding:18px 20px;border-left:2px solid #ff6b98;background:#fff09;border-radius:0 18px 18px 0}.moment b{display:block;margin-bottom:5px;color:#ffb4ca}
+.envelope{font-size:100px;cursor:pointer;animation:float 2s ease-in-out infinite}@keyframes float{50%{transform:translateY(-10px)}}.letter{display:none;text-align:left;background:#fff;color:#542638;border-radius:20px;padding:27px;font:18px/1.8 "DM Serif Display",serif;max-width:580px;margin:20px auto}.letter.show{display:block;animation:open .7s}@keyframes open{from{opacity:0;transform:translateY(20px) scale(.95)}}
+#question .buttons{height:130px;position:relative}.yes{color:white;background:linear-gradient(135deg,#ff3f78,#e91e63);box-shadow:0 10px 30px #ff397055}.no{background:#fff;color:#633849;position:relative}
+.counter{font-size:12px;opacity:.55;margin-top:20px}.biglove{font-size:80px}.infinity{font-size:42px;font-family:"DM Serif Display";margin:12px}
+.gallery{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:25px}.photo{width:150px;height:180px;background:#fff;color:#482536;padding:10px 10px 25px;box-shadow:0 15px 35px #0005;transform:rotate(-4deg);font-family:"DM Serif Display";font-size:16px}.photo:nth-child(2){transform:rotate(5deg)}.photo:nth-child(3){transform:rotate(-2deg)}.photo .fake{height:125px;background:linear-gradient(135deg,#ffc1d5,#8e5070);display:flex;align-items:center;justify-content:center;font-size:45px;margin-bottom:10px}
+#toast{position:fixed;z-index:30;bottom:25px;left:50%;transform:translateX(-50%) translateY(20px);padding:12px 20px;border-radius:30px;background:white;color:#55283b;font-size:12px;font-weight:600;opacity:0;transition:.3s;pointer-events:none}#toast.show{opacity:1;transform:translateX(-50%)}
+.fall{position:fixed;top:-50px;z-index:20;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(115vh) rotate(35deg);opacity:0}}
+@media(max-width:550px){.card{padding:35px 20px}.grid{grid-template-columns:1fr}.photo{width:125px;height:155px}.photo .fake{height:105px}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="orb o1"></div><div class="orb o2"></div><div class="stars" id="stars"></div><div id="toast"></div>
+
+<section class="screen active" id="s1"><div class="card">
+<div class="eyebrow">A little something for Eslam ✦</div><div class="heart">♡</div>
+<h1>Hey, Eslam.</h1><p class="subtitle">I made a tiny journey for someone who means a little more than they probably realize.</p>
+<div class="divider"></div><button class="btn primary" onclick="go(2)">Open my heart 💌</button>
+</div></section>
+
+<section class="screen" id="s2"><div class="card">
+<div class="eyebrow">Chapter I</div><h2>Before we get to the question...</h2>
+<p class="subtitle">There are a few things I want you to know.</p>
+<div class="timeline">
+<div class="moment"><b>✦ The little things</b> Somehow, your smallest moments are the ones I remember.</div>
+<div class="moment"><b>♡ Your presence</b> You have a way of making ordinary moments feel different.</div>
+<div class="moment"><b>✨ The smile</b> Yes. That smile. It should honestly come with a warning.</div>
+<div class="moment"><b>🌙 One more thing</b> You became special without even asking for the job.</div>
+</div><button class="btn primary" onclick="go(3)">Keep going →</button>
+</div></section>
+
+<section class="screen" id="s3"><div class="card">
+<div class="eyebrow">Chapter II</div><h2>Reasons I adore you</h2>
+<p class="subtitle">Tap each little heart. I promise there's something behind it.</p>
+<div class="grid">
+<div class="reason" onclick="this.classList.toggle('open')"><span class="front">♡ Tap me</span><span class="back">Because you make me smile without trying. 🥹</span></div>
+<div class="reason" onclick="this.classList.toggle('open')"><span class="front">♡ Tap me</span><span class="back">Because talking to you never feels like enough. 💬</span></div>
+<div class="reason" onclick="this.classList.toggle('open')"><span class="front">♡ Tap me</span><span class="back">Because your existence makes my world softer. 🌷</span></div>
+<div class="reason" onclick="this.classList.toggle('open')"><span class="front">♡ Tap me</span><span class="back">Because somehow, you just feel like home. 🏡</span></div>
+</div><button class="btn primary" onclick="go(4)">There's more →</button>
+</div></section>
+
+<section class="screen" id="s4"><div class="card">
+<div class="eyebrow">Chapter III</div><h2>A letter, just for you</h2>
+<div class="envelope" onclick="document.querySelector('.letter').classList.add('show');this.style.display='none'">💌</div>
+<p class="subtitle">Tap the envelope to open it.</p>
+<div class="letter">
+My favorite person, Eslam,<br><br>
+I don't know exactly when you went from being someone I knew to someone I genuinely cared about. It happened quietly, somewhere between the conversations, the laughs, the little moments, and all the things I never thought I'd remember.<br><br>
+But here we are. And if I could keep one thing, it would be every moment that made me realize how special you are.<br><br>
+So before I ask you something very important... thank you for simply being you. ❤️
+</div>
+<button class="btn primary" onclick="go(5)">Now, the important part →</button>
+</div></section>
+
+<section class="screen" id="s5"><div class="card">
+<div class="eyebrow">Chapter IV · The question</div><div class="heart">💗</div>
+<h1>Do you love me?</h1><p class="subtitle">Take your time... but choose wisely. 😌</p>
+<div class="divider"></div>
+<div class="buttons"><button class="btn yes" id="yes">Yes, I do 💕</button><button class="btn no" id="no">No 🙈</button></div>
+<div class="counter" id="counter">Attempts to say no: 0</div>
+</div></section>
+
+<section class="screen" id="s6"><div class="card">
+<div class="biglove">🥹💖</div><div class="eyebrow">Chapter V · Confirmed</div>
+<h2>I KNEW IT.</h2><p class="subtitle">Okay, maybe I was hoping for that answer. A lot.</p>
+<div class="infinity">∞</div><p>Infinite reasons to smile.<br>Infinite little moments to make.<br>Infinite chances to choose each other.</p>
+<button class="btn primary" onclick="go(7);rain()">One more thing... 🌹</button>
+</div></section>
+
+<section class="screen" id="s7"><div class="card">
+<div class="eyebrow">Chapter VI</div><h2>Our little memory wall</h2>
+<p class="subtitle">Imagine these are the moments waiting to become memories.</p>
+<div class="gallery">
+<div class="photo"><div class="fake">🌅</div>Late sunsets &amp; long talks</div>
+<div class="photo"><div class="fake">☕</div>Little dates</div>
+<div class="photo"><div class="fake">🌙</div>Midnight conversations</div>
+</div>
+<button class="btn primary" onclick="go(8)">And finally... ✨</button>
+</div></section>
+
+<section class="screen" id="s8"><div class="card">
+<div class="heart">❤️</div><div class="eyebrow">The last page · For Eslam</div>
+<h1>I'd choose you.</h1>
+<p class="subtitle">Today. Tomorrow. On the easy days, the weird days, the beautiful days... and all the days in between.</p>
+<div class="divider"></div>
+<p style="font-family:'DM Serif Display';font-size:24px;font-style:italic">"If I had to choose you again,<br>I'd choose you every single time."</p><p style="margin-top:25px;font-family:'DM Serif Display';font-size:20px;font-style:italic">— Ammar ❤️</p>
+<div class="divider"></div>
+<button class="btn ghost" onclick="go(1)">Replay our story ♡</button>
+</div></section>
+
+<script>
+let current=1,attempts=0;
+function go(n){document.getElementById('s'+current).classList.remove('active');current=n;document.getElementById('s'+n).classList.add('active')}
+const no=document.getElementById('no'),toast=document.getElementById('toast');
+const msgs=["Nice try 😌","Are you sure? 👀","That button disagrees 😂","I think you meant YES. 💕","You can't escape love!","One more chance? 🥺","The universe said no to NO. ✨"];
+function escapeNo(){
+ attempts++;document.getElementById('counter').textContent='Attempts to say no: '+attempts;
+ const w=no.offsetWidth,h=no.offsetHeight,m=18;
+ no.style.position='fixed';no.style.left=(m+Math.random()*(innerWidth-w-m*2))+'px';no.style.top=(m+Math.random()*(innerHeight-h-m*2))+'px';
+ no.style.transform='rotate('+(Math.random()*20-10)+'deg) scale('+(0.9+Math.random()*.15)+')';
+ toast.textContent=msgs[(attempts-1)%msgs.length];toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1000);
+}
+no.addEventListener('mouseenter',escapeNo);no.addEventListener('touchstart',e=>{e.preventDefault();escapeNo()});no.addEventListener('click',e=>{e.preventDefault();escapeNo()});
+document.getElementById('yes').onclick=()=>{go(6);rain();burst()};
+function rain(){
+ const icons=['❤️','💗','💖','💕','💘','💝','🌹','✨'];
+ for(let i=0;i<75;i++)setTimeout(()=>{let x=document.createElement('div');x.className='fall';x.textContent=icons[Math.floor(Math.random()*icons.length)];x.style.left=Math.random()*100+'vw';x.style.fontSize=14+Math.random()*28+'px';x.style.animationDuration=3+Math.random()*4+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),7500)},i*35)
+}
+function burst(){for(let i=0;i<35;i++){let x=document.createElement('div');x.className='fall';x.textContent='✦';x.style.left='50%';x.style.top='50%';x.style.animationDuration='.9s';x.style.setProperty('--x',(Math.random()*500-250)+'px');x.style.transform='translate(var(--x),'+(Math.random()*500-250)+'px)';document.body.appendChild(x);setTimeout(()=>x.remove(),1000)}}
+for(let i=0;i<55;i++){let s=document.createElement('span');s.className='star';s.textContent=Math.random()>.5?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=5+Math.random()*9+'px';s.style.animationDelay=Math.random()*2+'s';document.getElementById('stars').appendChild(s)}
+</script>
+</body>
+</html>
